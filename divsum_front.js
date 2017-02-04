@@ -580,13 +580,21 @@ $(document).ready(function(){
         return false;
     });
 
+	$("#reset_button").bind("click", function(){
+		reset();
+	})
+
     field.init();
 
     setInterval(main_loop, 16);
 });
 
-
-window.onhashchange = function(){
+function reset(){
     field = new c_field();
     field.init();
+    $("#game_record").text("");
+}
+
+window.onhashchange = function(){
+	reset();
 };
